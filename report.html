@@ -12190,7 +12190,7 @@ Testing set has 95 samples.
 <li>Weaknesses: can't learn interaction between features;</li>
 <li>Performs well: when the features are independent;</li>
 <li>Performs poorly: when the features are dependent;</li>
-<li><p>characteristics that make the model a good candidate for the problem, based on the given data: more than 50 samples; category prediction; labeled data; less than 100K samples; text data.</p>
+<li><p>Characteristics that make the model a good candidate for the problem, based on the given data: more than 50 samples; category prediction; labeled data; less than 100K samples; text data.</p>
 <p>References:</p>
 </li>
 <li><a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">https://en.wikipedia.org/wiki/Naive_Bayes_classifier</a></li>
@@ -12205,7 +12205,7 @@ Testing set has 95 samples.
 <li>Weaknesses: a slight change can result in a drastically different tree; without proper pruning or limiting tree growth, they tend to overfit the training data (high accurate output on training data, but low accurate output on test data);</li>
 <li>Performs well: when some measuares are taken to avoid overfit;</li>
 <li>Performs poorly: when it has a lot of uncorrelated features (because it works by finding the interactions between them);</li>
-<li><p>characteristics that make the model a good candidate for the problem, based on the given data: more than 50 samples; category prediction; labeled data; less than 100K samples; text data.</p>
+<li><p>Characteristics that make the model a good candidate for the problem, based on the given data: more than 50 samples; category prediction; labeled data; less than 100K samples; text data.</p>
 <p>References:</p>
 </li>
 <li><a href="https://en.wikipedia.org/wiki/Decision_tree">https://en.wikipedia.org/wiki/Decision_tree</a></li>
@@ -12222,7 +12222,7 @@ Testing set has 95 samples.
 <li>Weaknesses: memory intensive; slow for large data sets; several key parameters that need to be set correctly to achieve the best classification;</li>
 <li>Performs well: on a wide range of classification problems, even problems in high dimensions and that are not linearly separable;</li>
 <li>Performs poorly: when the data sets are very large; there is a lot of noise (can cause some overfitting);</li>
-<li><p>characteristics that make the model a good candidate for the problem, based on the given data: more than 50 samples; category prediction; labeled data; less than 100K samples; text data.</p>
+<li><p>Characteristics that make the model a good candidate for the problem, based on the given data: more than 50 samples; category prediction; labeled data; less than 100K samples; text data.</p>
 <p>References:</p>
 </li>
 <li><a href="http://www.datasciencecentral.com/profiles/blogs/real-life-applications-of-support-vector-machines">http://www.datasciencecentral.com/profiles/blogs/real-life-applications-of-support-vector-machines</a></li>
@@ -12731,11 +12731,11 @@ F1 score for test set: 0.8050.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>Brief explanation:
-Naive Bayes is a Machine Learning classifier. Its initial knowledge is based on a set of samples that we need to provide to that. Each sample should have N features and 1 label.
+<p>Brief explanation:</p>
+<p>Naive Bayes is a Machine Learning classifier. Its initial knowledge is based on a set of samples that we need to provide to that. Each sample should have N features and 1 label.
 Once the classifier has this knowledge (it was trained), we can provide to that N features and ask for a prediction. So our sample of N features and no label will have a label now. In other words, the sample was classified.</p>
-<p>Training Process:
-We provide to algorithm a training set with the features and labels. For example:</p>
+<p>Training Process:</p>
+<p>We provide to algorithm a training set with the features and labels. For example:</p>
 <table>
 <thead><tr>
 <th style="text-align:center">Color</th>
@@ -12789,12 +12789,12 @@ We provide to algorithm a training set with the features and labels. For example
 </tr>
 </tbody>
 </table>
-<p>Prediction:
-Given a fruit, it will be classified (label) based on its color, roundness and diameter (features). For example, we know our fruit:</p>
+<p>Prediction:</p>
+<p>Given a fruit, it will be classified (label) based on its color, roundness and diameter (features). For example, we know our fruit:</p>
 <ul>
 <li>1) is round: so it can be classified as an orange, apple or melon;</li>
-<li>2) has 11cm of diameter: the model don't know a melon of 11cm, so it should be an orange or an apple;</li>
-<li>3) is yellow: the model don't know a yellow apple, so it should be an orange!</li>
+<li>2) has 11cm of diameter: the model doesn't know a melon of 11cm, so it should be an orange or an apple;</li>
+<li>3) is yellow: the model doesn't know a yellow apple, so it should be an orange!</li>
 </ul>
 <p>But if the size of our fruit was 30cm?
 In this case, the value is not common, it's not in our training set. So it could be an orange or a melon. However, the algorithm has to choose 1 type only and once this size is closer of a melon than an orange, Naive Bayes (and probably any person) would say that our fruit is a melon. So even though our features aren't exactly like a sample of the training set, it still can be classified based on mathematical probabilities.</p>
