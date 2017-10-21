@@ -12190,12 +12190,13 @@ Testing set has 95 samples.
 <li>Weaknesses: can't learn interaction between features;</li>
 <li>Performs well: when the features are independent;</li>
 <li>Performs poorly: when the features are dependent;</li>
-<li><p>And once our data has independent features, this model should be a good candidate for the problem.</p>
+<li><p>characteristics that make the model a good candidate for the problem, based on the given data: more than 50 samples; category prediction; labeled data; less than 100K samples; text data.</p>
 <p>References:</p>
 </li>
 <li><a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">https://en.wikipedia.org/wiki/Naive_Bayes_classifier</a></li>
 <li><a href="https://stats.stackexchange.com/questions/23490/why-do-naive-bayesian-classifiers-perform-so-well">https://stats.stackexchange.com/questions/23490/why-do-naive-bayesian-classifiers-perform-so-well</a></li>
 <li><a href="https://www.quora.com/What-are-the-advantages-of-using-a-naive-Bayes-for-classification">https://www.quora.com/What-are-the-advantages-of-using-a-naive-Bayes-for-classification</a></li>
+<li><a href="http://scikit-learn.org/stable/tutorial/machine_learning_map/">http://scikit-learn.org/stable/tutorial/machine_learning_map/</a></li>
 </ul>
 <p>2) Decision Tree:</p>
 <ul>
@@ -12204,7 +12205,7 @@ Testing set has 95 samples.
 <li>Weaknesses: a slight change can result in a drastically different tree; without proper pruning or limiting tree growth, they tend to overfit the training data (high accurate output on training data, but low accurate output on test data);</li>
 <li>Performs well: when some measuares are taken to avoid overfit;</li>
 <li>Performs poorly: when it has a lot of uncorrelated features (because it works by finding the interactions between them);</li>
-<li><p>And once our data has a lot of uncorrelated features, this model probably is not a good choice to solve the problem.</p>
+<li><p>characteristics that make the model a good candidate for the problem, based on the given data: more than 50 samples; category prediction; labeled data; less than 100K samples; text data.</p>
 <p>References:</p>
 </li>
 <li><a href="https://en.wikipedia.org/wiki/Decision_tree">https://en.wikipedia.org/wiki/Decision_tree</a></li>
@@ -12221,7 +12222,7 @@ Testing set has 95 samples.
 <li>Weaknesses: memory intensive; slow for large data sets; several key parameters that need to be set correctly to achieve the best classification;</li>
 <li>Performs well: on a wide range of classification problems, even problems in high dimensions and that are not linearly separable;</li>
 <li>Performs poorly: when the data sets are very large; there is a lot of noise (can cause some overfitting);</li>
-<li><p>And once our data isn't very large (and probably it has no much noise) it may be a good candidate to solve the problem.</p>
+<li><p>characteristics that make the model a good candidate for the problem, based on the given data: more than 50 samples; category prediction; labeled data; less than 100K samples; text data.</p>
 <p>References:</p>
 </li>
 <li><a href="http://www.datasciencecentral.com/profiles/blogs/real-life-applications-of-support-vector-machines">http://www.datasciencecentral.com/profiles/blogs/real-life-applications-of-support-vector-machines</a></li>
@@ -12706,7 +12707,12 @@ F1 score for test set: 0.8050.
 <li>pros (train/test): good time (for small data set) and F1 Score;</li>
 <li>cons (train/test): should be tuned (with a lot of parameters) for a better F1 Score; tends to a bad time if the data set is increased.</li>
 </ul>
-<p>So Naive Bayes model seems to be generally the most appropriate based on the available data, limited resources, cost and performance.</p>
+<p>Comparison conclusions:</p>
+<ul>
+<li>time: increasing the training set size, Naive Bayes and Decision Tree tend to be many times faster than Support Vector Machine;</li>
+<li>F1 Score: Support Vector Machine had the best score; Decision Tree, the worst.</li>
+</ul>
+<p>So Naive Bayes model seems to be generally the most appropriate based on the available data, limited resources, cost and performance. But Support Vector Machine would be a good or even better choice as well once the data size is small, so the time is not a big deal here.</p>
 
 </div>
 </div>
@@ -12725,95 +12731,73 @@ F1 score for test set: 0.8050.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>Let's say we have 1000 fruits. They can be Banana, Orange or some Other. And each fruit can have 3 features: Long, Sweet and Yellow.</p>
+<p>Brief explanation:
+Naive Bayes is a Machine Learning classifier. Its initial knowledge is based on a set of samples that we need to provide to that. Each sample should have N features and 1 label.
+Once the classifier has this knowledge (it was trained), we can provide to that N features and ask for a prediction. So our sample of N features and no label will have a label now. In other words, the sample was classified.</p>
+<p>Training Process:
+We provide to algorithm a training set with the features and labels. For example:</p>
 <table>
 <thead><tr>
-<th style="text-align:center">Type</th>
-<th style="text-align:center">Long</th>
-<th style="text-align:center">Not Long</th>
-<th style="text-align:center">Sweet</th>
-<th style="text-align:center">Not Sweet</th>
-<th style="text-align:center">Yellow</th>
-<th style="text-align:center">Not Yellow</th>
-<th style="text-align:center">Total</th>
+<th style="text-align:center">Color</th>
+<th style="text-align:center">Shape</th>
+<th style="text-align:center">Size</th>
+<th style="text-align:center">Fruit</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Banana</td>
-<td style="text-align:center">400</td>
-<td style="text-align:center">100</td>
-<td style="text-align:center">350</td>
-<td style="text-align:center">150</td>
-<td style="text-align:center">450</td>
-<td style="text-align:center">50</td>
-<td style="text-align:center">500</td>
-</tr>
-<tr>
+<td style="text-align:center">Yellow</td>
+<td style="text-align:center">Round</td>
+<td style="text-align:center">11cm</td>
 <td style="text-align:center">Orange</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">300</td>
-<td style="text-align:center">150</td>
-<td style="text-align:center">150</td>
-<td style="text-align:center">300</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">300</td>
 </tr>
 <tr>
-<td style="text-align:center">Other</td>
-<td style="text-align:center">100</td>
-<td style="text-align:center">100</td>
-<td style="text-align:center">150</td>
-<td style="text-align:center">50</td>
-<td style="text-align:center">50</td>
-<td style="text-align:center">150</td>
-<td style="text-align:center">200</td>
+<td style="text-align:center">Yellow</td>
+<td style="text-align:center">Round</td>
+<td style="text-align:center">12cm</td>
+<td style="text-align:center">Orange</td>
 </tr>
 <tr>
-<td style="text-align:center">Total</td>
-<td style="text-align:center">500</td>
-<td style="text-align:center">500</td>
-<td style="text-align:center">650</td>
-<td style="text-align:center">350</td>
-<td style="text-align:center">800</td>
-<td style="text-align:center">200</td>
-<td style="text-align:center">1000</td>
+<td style="text-align:center">Red</td>
+<td style="text-align:center">Round</td>
+<td style="text-align:center">10cm</td>
+<td style="text-align:center">Apple</td>
+</tr>
+<tr>
+<td style="text-align:center">Red</td>
+<td style="text-align:center">Round</td>
+<td style="text-align:center">11cm</td>
+<td style="text-align:center">Apple</td>
+</tr>
+<tr>
+<td style="text-align:center">Red</td>
+<td style="text-align:center">Round</td>
+<td style="text-align:center">12cm</td>
+<td style="text-align:center">Apple</td>
+</tr>
+<tr>
+<td style="text-align:center">Yellow</td>
+<td style="text-align:center">Round</td>
+<td style="text-align:center">23cm</td>
+<td style="text-align:center">Melon</td>
+</tr>
+<tr>
+<td style="text-align:center">Yellow</td>
+<td style="text-align:center">Round</td>
+<td style="text-align:center">25cm</td>
+<td style="text-align:center">Melon</td>
 </tr>
 </tbody>
 </table>
-<p>To predict the type of a fruit Naive Bayes use probabilities:</p>
+<p>Prediction:
+Given a fruit, it will be classified (label) based on its color, roundness and diameter (features). For example, we know our fruit:</p>
 <ul>
-<li>P(Banana)                 = 0.5   (500/1000)</li>
-<li>P(Orange)                 = 0.3   (300/1000)</li>
-<li>P(Other)                  = 0.2   (200/1000)</li>
-<li>P(Long)                   = 0.5   (500/1000)</li>
-<li>P(Sweet)                  = 0.65  (650/1000)</li>
-<li>P(Yellow)                 = 0.8   (800/1000)</li>
-<li>P(Long|Banana)            = 0.8   (400/500)</li>
-<li>P(Long|Orange)            = 0     (0/500)</li>
-<li>...</li>
-<li>P(Yellow|Other)           = 0.25  (50/200)</li>
-<li>P(Not Yellow|Other)       = 0.75  (150/200)</li>
+<li>1) is round: so it can be classified as an orange, apple or melon;</li>
+<li>2) has 11cm of diameter: the model don't know a melon of 11cm, so it should be an orange or an apple;</li>
+<li>3) is yellow: the model don't know a yellow apple, so it should be an orange!</li>
 </ul>
-<p>For example, consider we have a Long, Sweet and Yellow fruit. Which fruit is that? Is it a Banana, an Orange or some other fruit?</p>
-<p>To answer that, the algorithm just need to calculate and compare these probabilities:</p>
-<ul>
-<li>P(Banana|Long, Sweet and Yellow)  = P(Long|Banana) * P(Sweet|Banana) * P(Yellow|Banana) * P(Banana) / P(Long) * P(Sweet) * P(Yellow)</li>
-<li>P(Orange|Long, Sweet and Yellow)  = P(Long|Orange) * P(Sweet|Orange) * P(Yellow|Orange) * P(Orange) / P(Long) * P(Sweet) * P(Yellow)</li>
-<li>P(Other|Long, Sweet and Yellow)   = P(Long|Other)  * P(Sweet|Other)  * P(Yellow|Other)  * P(Other)  / P(Long) * P(Sweet) * P(Yellow)</li>
-</ul>
-<p>If we calculate that, we will see that P(Banana|Long, Sweet and Yellow) has the highest value. So Naive Bayes would classify our fruit as a Banana.</p>
-<p>Reference:</p>
-<ul>
-<li><a href="https://stackoverflow.com/questions/10059594/a-simple-explanation-of-naive-bayes-classification">https://stackoverflow.com/questions/10059594/a-simple-explanation-of-naive-bayes-classification</a></li>
-</ul>
-<p>Additional (and technical) information about Naive Bayes:</p>
-<p>A Naive Bayes classifier only requires a small number of training data to estimate the parameters necessary for classification. The model assumes that the value of a particular feature is independent of the value of any other feature. In other words, each feature contributes independently to the final probability of a label (prediction). Besides that, the time complexity of the algorithm is the best possible (considering situations where the algorithm has to sequentially read its entire input).</p>
-<p>Reference:</p>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">https://en.wikipedia.org/wiki/Naive_Bayes_classifier</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Time_complexity#Linear_time">https://en.wikipedia.org/wiki/Time_complexity#Linear_time</a></li>
-</ul>
+<p>But if the size of our fruit was 30cm?
+In this case, the value is not common, it's not in our training set. So it could be an orange or a melon. However, the algorithm has to choose 1 type only and once this size is closer of a melon than an orange, Naive Bayes (and probably any person) would say that our fruit is a melon. So even though our features aren't exactly like a sample of the training set, it still can be classified based on mathematical probabilities.</p>
 
 </div>
 </div>
